@@ -1,0 +1,1844 @@
+{
+	"info": {
+		"_postman_id": "3a36e4d4-39ec-4046-9a7c-7d67cfa6212c",
+		"name": "AlkemyNode.js",
+		"description": "# Introduction\nAPI creada para el challenge de Alkemy\n\n# Overview\nSe incluye un archivo .sql con el backup de la base de datos. Alternativamente se puede ejecutar el archivo seed.js para llenar la base de datos.\nEn caso de que la base de datos se conecte por un host distinto al localhost, pasar por argumento --host_db el host que se utilizará.\nLas imagenes de Characters y Movies se cargan subiendo un archivo mediante Multer\n\n# Authentication\nPara acceder a los endpoints de Characters y Movies se debe registrar un usuario y loguearse.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"\",\r\n    \"password\":\"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"\",\r\n    \"password\":\"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Characters",
+			"item": [
+				{
+					"name": "GETS",
+					"item": [
+						{
+							"name": "GetAllCharacters",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "aaa",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "aaa@aaa.com",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/characters",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"characters"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "GetAllCharacters",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8080/api/characters",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"api",
+												"characters"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "483"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"1e3-MDI+DzOLNV4DYGGph1OpSUHEuu0\""
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 27 Apr 2022 20:59:40 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "[\n    {\n        \"name\": \"Simba\",\n        \"img\": \"https://upload.wikimedia.org/wikipedia/en/thumb/9/94/Simba_%28_Disney_character_-_adult%29.png/220px-Simba_%28_Disney_character_-_adult%29.png\"\n    },\n    {\n        \"name\": \"Belle\",\n        \"img\": \"https://static.wikia.nocookie.net/disney/images/1/1b/Profile_-_Belle.jpeg/revision/latest/scale-to-width-down/516?cb=20190312024430\"\n    },\n    {\n        \"name\": \"Beast\",\n        \"img\": \"https://static.wikia.nocookie.net/disney/images/8/84/Profile_-_Beast.jpeg/revision/latest/scale-to-width-down/516?cb=20190312024919\"\n    }\n]"
+								}
+							]
+						},
+						{
+							"name": "GetCharactersByName",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "aaa",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "aaa@aaa.com",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/characters?name=Simba",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"characters"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "Simba"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "GetCharactersByName",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8080/api/characters?name=Simba",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"api",
+												"characters"
+											],
+											"query": [
+												{
+													"key": "name",
+													"value": "Simba"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "169"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"a9-COq/fzTVVea8HTx7ywE00UjYwSQ\""
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 27 Apr 2022 21:00:25 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "[\n    {\n        \"name\": \"Simba\",\n        \"img\": \"https://upload.wikimedia.org/wikipedia/en/thumb/9/94/Simba_%28_Disney_character_-_adult%29.png/220px-Simba_%28_Disney_character_-_adult%29.png\"\n    }\n]"
+								}
+							]
+						},
+						{
+							"name": "GetCharactersByMovie",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "aaa",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "aaa@aaa.com",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/characters?movies=5",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"characters"
+									],
+									"query": [
+										{
+											"key": "movies",
+											"value": "5"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "GetCharactersByMovie",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8080/api/characters?movies=5",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"api",
+												"characters"
+											],
+											"query": [
+												{
+													"key": "movies",
+													"value": "5"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "315"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"13b-etUdb3YfzlHHewXRpADcqvbx1dY\""
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 27 Apr 2022 21:00:44 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "[\n    {\n        \"name\": \"Belle\",\n        \"img\": \"https://static.wikia.nocookie.net/disney/images/1/1b/Profile_-_Belle.jpeg/revision/latest/scale-to-width-down/516?cb=20190312024430\"\n    },\n    {\n        \"name\": \"Beast\",\n        \"img\": \"https://static.wikia.nocookie.net/disney/images/8/84/Profile_-_Beast.jpeg/revision/latest/scale-to-width-down/516?cb=20190312024919\"\n    }\n]"
+								}
+							]
+						},
+						{
+							"name": "GetCharactersByAge",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "aaa",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "aaa@aaa.com",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/characters?age=20",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"characters"
+									],
+									"query": [
+										{
+											"key": "age",
+											"value": "20"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "GetCharactersByAge",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8080/api/characters?age=20",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"api",
+												"characters"
+											],
+											"query": [
+												{
+													"key": "age",
+													"value": "20"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "158"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"9e-s8ga6W38EaEA4mt1tNIcshpyWA0\""
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 27 Apr 2022 21:00:51 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "[\n    {\n        \"name\": \"Beast\",\n        \"img\": \"https://static.wikia.nocookie.net/disney/images/8/84/Profile_-_Beast.jpeg/revision/latest/scale-to-width-down/516?cb=20190312024919\"\n    }\n]"
+								}
+							]
+						},
+						{
+							"name": "GetCharacterDetails",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "aaa",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "aaa@aaa.com",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/characters/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"characters",
+										"1"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "GetCharacterDetails",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8080/api/characters/1",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"api",
+												"characters",
+												"1"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "414"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"19e-v2+9wRK72Q2uYYmlUmH9rnDRBU8\""
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 27 Apr 2022 21:00:56 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"name\": \"Simba\",\n    \"age\": 5,\n    \"weigth\": 190,\n    \"story\": \"Simba is a male lion. He is the king of Pride Rock who succeeded Scar. He is the son of Mufasa and Sarabi, and the mate of Nala, with whom he has a son, Kion, and a daughter, Kiara.\",\n    \"img\": \"https://upload.wikimedia.org/wikipedia/en/thumb/9/94/Simba_%28_Disney_character_-_adult%29.png/220px-Simba_%28_Disney_character_-_adult%29.png\",\n    \"movie\": {\n        \"title\": \"The Lion King\"\n    }\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "CRUD",
+					"item": [
+						{
+							"name": "postCharacter",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "aaa",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "aaa@aaa.com",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "Test character",
+											"type": "text"
+										},
+										{
+											"key": "age",
+											"value": "99",
+											"type": "text"
+										},
+										{
+											"key": "weigth",
+											"value": "99",
+											"type": "text"
+										},
+										{
+											"key": "story",
+											"value": "A character created for testing purposes",
+											"type": "text"
+										},
+										{
+											"key": "img",
+											"type": "file",
+											"src": "/C:/Users/KB/Documents/Desarrollo Web/proyectos/alkemyBack/ImgTest/test-img.jpg"
+										},
+										{
+											"key": "movieId",
+											"value": "4",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/characters",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"characters"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "postCharacter",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "name",
+													"value": "Test character",
+													"type": "text"
+												},
+												{
+													"key": "age",
+													"value": "99",
+													"type": "text"
+												},
+												{
+													"key": "weigth",
+													"value": "99",
+													"type": "text"
+												},
+												{
+													"key": "story",
+													"value": "A character created for testing purposes",
+													"type": "text"
+												},
+												{
+													"key": "img",
+													"type": "file",
+													"src": "/C:/Users/KB/Documents/Desarrollo Web/proyectos/alkemyBack/ImgTest/test-img.jpg"
+												},
+												{
+													"key": "movieId",
+													"value": "1",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "http://localhost:8080/api/characters",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"api",
+												"characters"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "185"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"b9-FoU+p7flG6yaTaxm8+vysaVet2o\""
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 28 Apr 2022 00:00:50 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"Character created\",\n    \"data\": {\n        \"name\": \"Test character\",\n        \"age\": \"99\",\n        \"weigth\": \"99\",\n        \"story\": \"A character created for testing purposes\",\n        \"movieId\": \"1\",\n        \"img\": \"./uploads/test-img.jpg\"\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "putCharacter",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "aaa",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "aaa@aaa.com",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\":\"Name modified\",\r\n    \"story\":\"Object modified by a put request\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/characters/5",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"characters",
+										"5"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "putCharacter",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\":\"Name modified\",\r\n    \"story\":\"Object modified by a put request\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8080/api/characters/5",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"api",
+												"characters",
+												"5"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "107"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"6b-YgcAfVIa7s41e8TcB6Y898Fgqg4\""
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 28 Apr 2022 00:07:24 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"Character modified\",\n    \"data\": {\n        \"name\": \"Name modified\",\n        \"story\": \"Object modified by a put request\"\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "deleteCharacter",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "aaa",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "aaa@aaa.com",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/characters/5",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"characters",
+										"5"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "deleteCharacter",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8080/api/characters/5",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"api",
+												"characters",
+												"5"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "30"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"1e-ze1J29thGIlmQGmlz3N4K7b31WE\""
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 28 Apr 2022 00:08:46 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"Character erased\"\n}"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Movies",
+			"item": [
+				{
+					"name": "GETS",
+					"item": [
+						{
+							"name": "getAllMovies",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "aaa",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "aaa@aaa.com",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/movies",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"movies"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "getAllMovies",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8080/api/movies",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"api",
+												"movies"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "453"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"1c5-4oxct5ytAtHlKJ1VDzBnAQo9Za8\""
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 27 Apr 2022 21:01:55 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "[\n    {\n        \"title\": \"The Lion King\",\n        \"date\": 1994,\n        \"img\": \"https://upload.wikimedia.org/wikipedia/en/thumb/3/3d/The_Lion_King_poster.jpg/220px-The_Lion_King_poster.jpg\"\n    },\n    {\n        \"title\": \"Fantasia \",\n        \"date\": 1940,\n        \"img\": \"./uploads/cfeadc6d0babcfae02411aef43cd8acb.jpg\"\n    },\n    {\n        \"title\": \"Beauty and the Beast\",\n        \"date\": 1991,\n        \"img\": \"https://upload.wikimedia.org/wikipedia/en/thumb/5/5e/Beauty_and_the_Beast_%281991_film%29_poster.jpg/220px-Beauty_and_the_Beast_%281991_film%29_poster.jpg\"\n    }\n]"
+								}
+							]
+						},
+						{
+							"name": "getMoviesByName",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "aaa",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "aaa@aaa.com",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/movies?name=The Lion King",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"movies"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "The Lion King"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "getMoviesByName",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8080/api/movies?name=The Lion King",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"api",
+												"movies"
+											],
+											"query": [
+												{
+													"key": "name",
+													"value": "The Lion King"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "156"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"9c-6VbUhbuHPotRF2PtFY/oYEbExTI\""
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 27 Apr 2022 21:02:01 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "[\n    {\n        \"title\": \"The Lion King\",\n        \"date\": 1994,\n        \"img\": \"https://upload.wikimedia.org/wikipedia/en/thumb/3/3d/The_Lion_King_poster.jpg/220px-The_Lion_King_poster.jpg\"\n    }\n]"
+								}
+							]
+						},
+						{
+							"name": "getMoviesByGenre",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "aaa",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "aaa@aaa.com",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/movies?genre=1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"movies"
+									],
+									"query": [
+										{
+											"key": "genre",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "getMoviesByGenre",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8080/api/movies?genre=1",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"api",
+												"movies"
+											],
+											"query": [
+												{
+													"key": "genre",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "453"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"1c5-4oxct5ytAtHlKJ1VDzBnAQo9Za8\""
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 27 Apr 2022 21:02:11 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "[\n    {\n        \"title\": \"The Lion King\",\n        \"date\": 1994,\n        \"img\": \"https://upload.wikimedia.org/wikipedia/en/thumb/3/3d/The_Lion_King_poster.jpg/220px-The_Lion_King_poster.jpg\"\n    },\n    {\n        \"title\": \"Fantasia \",\n        \"date\": 1940,\n        \"img\": \"./uploads/cfeadc6d0babcfae02411aef43cd8acb.jpg\"\n    },\n    {\n        \"title\": \"Beauty and the Beast\",\n        \"date\": 1991,\n        \"img\": \"https://upload.wikimedia.org/wikipedia/en/thumb/5/5e/Beauty_and_the_Beast_%281991_film%29_poster.jpg/220px-Beauty_and_the_Beast_%281991_film%29_poster.jpg\"\n    }\n]"
+								}
+							]
+						},
+						{
+							"name": "getMoviesByDateASC",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "aaa",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "aaa@aaa.com",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/movies?order=ASC",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"movies"
+									],
+									"query": [
+										{
+											"key": "order",
+											"value": "ASC"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "getMoviesByDateASC",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8080/api/movies?order=ASC",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"api",
+												"movies"
+											],
+											"query": [
+												{
+													"key": "order",
+													"value": "ASC"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "453"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"1c5-HEvcuxHJHknkvxVdMzYuu70ncx8\""
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 27 Apr 2022 21:02:16 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "[\n    {\n        \"title\": \"Fantasia \",\n        \"date\": 1940,\n        \"img\": \"./uploads/cfeadc6d0babcfae02411aef43cd8acb.jpg\"\n    },\n    {\n        \"title\": \"Beauty and the Beast\",\n        \"date\": 1991,\n        \"img\": \"https://upload.wikimedia.org/wikipedia/en/thumb/5/5e/Beauty_and_the_Beast_%281991_film%29_poster.jpg/220px-Beauty_and_the_Beast_%281991_film%29_poster.jpg\"\n    },\n    {\n        \"title\": \"The Lion King\",\n        \"date\": 1994,\n        \"img\": \"https://upload.wikimedia.org/wikipedia/en/thumb/3/3d/The_Lion_King_poster.jpg/220px-The_Lion_King_poster.jpg\"\n    }\n]"
+								}
+							]
+						},
+						{
+							"name": "getMoviesByDateDESC",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "aaa",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "aaa@aaa.com",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/movies?order=DESC",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"movies"
+									],
+									"query": [
+										{
+											"key": "order",
+											"value": "DESC"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "getMoviesByDateDESC",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8080/api/movies?order=DESC",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"api",
+												"movies"
+											],
+											"query": [
+												{
+													"key": "order",
+													"value": "DESC"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "453"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"1c5-rr0NLZgQK+rv2wDyhLklAWJd1w0\""
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 27 Apr 2022 21:02:20 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "[\n    {\n        \"title\": \"The Lion King\",\n        \"date\": 1994,\n        \"img\": \"https://upload.wikimedia.org/wikipedia/en/thumb/3/3d/The_Lion_King_poster.jpg/220px-The_Lion_King_poster.jpg\"\n    },\n    {\n        \"title\": \"Beauty and the Beast\",\n        \"date\": 1991,\n        \"img\": \"https://upload.wikimedia.org/wikipedia/en/thumb/5/5e/Beauty_and_the_Beast_%281991_film%29_poster.jpg/220px-Beauty_and_the_Beast_%281991_film%29_poster.jpg\"\n    },\n    {\n        \"title\": \"Fantasia \",\n        \"date\": 1940,\n        \"img\": \"./uploads/cfeadc6d0babcfae02411aef43cd8acb.jpg\"\n    }\n]"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "CRUD",
+					"item": [
+						{
+							"name": "New Request",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "aaa",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "aaa@aaa.com",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "title",
+											"value": "Test movie",
+											"type": "text"
+										},
+										{
+											"key": "date",
+											"value": "9999",
+											"type": "text"
+										},
+										{
+											"key": "img",
+											"type": "file",
+											"src": "/C:/Users/KB/Documents/Desarrollo Web/proyectos/alkemyBack/ImgTest/test-img.jpg"
+										},
+										{
+											"key": "rate",
+											"value": "5",
+											"type": "text"
+										},
+										{
+											"key": "genreId",
+											"value": "1",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/movies",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"movies"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "New Request",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "title",
+													"value": "Test movie",
+													"type": "text"
+												},
+												{
+													"key": "date",
+													"value": "9999",
+													"type": "text"
+												},
+												{
+													"key": "img",
+													"type": "file",
+													"src": "/C:/Users/KB/Documents/Desarrollo Web/proyectos/alkemyBack/ImgTest/test-img.jpg"
+												},
+												{
+													"key": "rate",
+													"value": "5",
+													"type": "text"
+												},
+												{
+													"key": "genreId",
+													"value": "1",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "http://localhost:8080/api/movies",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"api",
+												"movies"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "96"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"60-ptyTEn2wBqT2lhQUQBzBA7wkXuY\""
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 28 Apr 2022 00:15:16 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"Movie created\",\n    \"data\": {\n        \"title\": \"Test movie\",\n        \"date\": \"9999\",\n        \"rate\": \"5\",\n        \"genreId\": \"1\"\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "New Request",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "aaa",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "aaa@aaa.com",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\":\"Title modified\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/movies/7",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"movies",
+										"7"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "New Request",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"title\":\"Title modified\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8080/api/movies/7",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"api",
+												"movies",
+												"7"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "61"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"3d-05NdwzULwaXAvfWxNx1Z9BfL9Kc\""
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 28 Apr 2022 00:16:33 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"Movie updated\",\n    \"data\": {\n        \"title\": \"Title modified\"\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "New Request",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "aaa",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "aaa@aaa.com",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/movies/7",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"movies",
+										"7"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "New Request",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8080/api/movies/7",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"api",
+												"movies",
+												"7"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "27"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"1b-c+63+ZqJc72DHh+6v1aqfDJukao\""
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 28 Apr 2022 00:16:55 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"Movie deleted\"\n}"
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+}
